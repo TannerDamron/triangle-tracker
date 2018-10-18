@@ -15,12 +15,24 @@ $(document).ready(function() {
       alert("Enter a number:");
     }else if(numberOne === numberTwo && numberOne === numberThree && numberTwo === numberThree ) {
       $("#equilateral").show();
+      $("#isosceles").hide();
+      $("#not").hide();
+      $("#scalene").hide();
     }else if(numberOne === numberTwo || numberOne === numberThree || numberTwo === numberThree){
       $("#isosceles").show();
+      $("#not").hide();
+      $("#scalene").hide();
+      $("#equilateral").hide();
     }else if (a>numberThree || b>numberTwo || c>numberOne){
       $("#not").show();
+      $("#equilateral").hide();
+      $("#isosceles").hide();
+      $("#scalene").hide();
     }else if(numberOne !== numberTwo && numberOne !== numberThree && numberTwo !== numberThree){
       $("#scalene").show();
+      $("#equilateral").hide();
+      $("#isosceles").hide();
+      $("#not").hide();
     }
     event.preventDefault();
   });
