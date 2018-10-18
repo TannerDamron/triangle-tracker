@@ -5,14 +5,16 @@ var add = function(num1,num2){
 
 $(document).ready(function() {
   $("form#triangle").submit(function(event) {
-    var numberOne = $("input#number1").val();
-    var numberTwo = $("input#number2").val();
-    var numberThree = $("input#number3").val();
+    var numberOne = parseInt($("input#number1").val());
+    var numberTwo = parseInt($("input#number2").val());
+    var numberThree = parseInt($("input#number3").val());
     var a = add(numberTwo,numberOne);
     var b = add(numberOne,numberThree);
     var c = add(numberThree,numberTwo);
-    if ((numberTwo || numberOne || numberThree) === ""){
+    if (!numberTwo || !numberOne || !numberThree){
       alert("Enter a number:");
+    }else if((numberTwo || numberOne || numberThree) === 0){
+      alert('Enter a number that is not a "Zero"');
     }else if(numberOne === numberTwo && numberOne === numberThree && numberTwo === numberThree ) {
       $("#equilateral").show();
       $("#isosceles").hide();
@@ -23,7 +25,7 @@ $(document).ready(function() {
       $("#not").hide();
       $("#scalene").hide();
       $("#equilateral").hide();
-    }else if (a>numberThree || b>numberTwo || c>numberOne){
+    }else if (a<=numberThree && b<=numberTwo && c<=numberOne){
       $("#not").show();
       $("#equilateral").hide();
       $("#isosceles").hide();
